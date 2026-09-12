@@ -1,0 +1,258 @@
+@import "tailwindcss";
+
+@layer base {
+  :root {
+    --bg-background: #0f131c;
+    --surface-lowest: #0a0e16;
+    --surface-low: #181c24;
+    --surface-default: #1c2028;
+    --surface-high: #262a33;
+    --surface-highest: #31353e;
+    
+    --primary: #adc6ff;
+    --primary-container: #4d8eff;
+    --on-primary: #002e6a;
+    
+    --secondary: #d0bcff;
+    --secondary-container: #571bc1;
+    --on-secondary: #3c0091;
+    
+    --tertiary: #4edea3;
+    --tertiary-container: #00a572;
+    --on-tertiary: #003824;
+    
+    --on-surface: #dfe2ee;
+    --on-surface-variant: #c2c6d6;
+    --outline: #8c909f;
+    --outline-variant: #424754;
+  }
+
+  html, body {
+    background-color: var(--bg-background);
+    color: var(--on-surface);
+    font-family: 'Inter', sans-serif;
+    margin: 0;
+    padding: 0;
+    overscroll-behavior: none;
+    transition: background-color 0.3s ease, color 0.3s ease;
+  }
+
+  /* Custom Scrollbar styling */
+  ::-webkit-scrollbar {
+    width: 6px;
+    height: 6px;
+  }
+  ::-webkit-scrollbar-track {
+    background: var(--surface-lowest);
+  }
+  ::-webkit-scrollbar-thumb {
+    background: var(--surface-high);
+    border-radius: 9999px;
+  }
+  ::-webkit-scrollbar-thumb:hover {
+    background: var(--primary-container);
+  }
+}
+
+/* Custom Font Utilities */
+.font-display {
+  font-family: 'Space Grotesk', sans-serif;
+}
+.font-headline {
+  font-family: 'Space Grotesk', sans-serif;
+}
+.font-body {
+  font-family: 'Inter', sans-serif;
+}
+.font-mono {
+  font-family: 'JetBrains Mono', monospace;
+}
+
+/* Glassmorphism & Elevation */
+.glass-panel {
+  background: rgba(24, 28, 36, 0.75);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.glass-panel-elevated {
+  background: rgba(38, 42, 51, 0.85);
+  backdrop-filter: blur(24px);
+  -webkit-backdrop-filter: blur(24px);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.12), 0 12px 32px -4px rgba(0, 0, 0, 0.5);
+}
+
+/* Pure White Light Mode Architecture & Typography Scheme */
+html.light-mode, html.light {
+  --bg-color: #ffffff;
+  --header-bg: rgba(255, 255, 255, 0.95);
+  --card-bg: #ffffff;
+  --card-secondary: #ffffff;
+  --card-elevated: #ffffff;
+  --text-main: #0f172a;
+  --text-muted: #334155;
+  --border-color: #e2e8f0;
+}
+
+html.light-mode body, html.light body,
+html.light-mode main, html.light main {
+  background-color: #ffffff !important;
+  color: #0f172a !important;
+}
+
+/* Containers and Section Backgrounds in Light Mode */
+html.light-mode section, html.light section,
+html.light-mode [class*="bg-[#0f131c]"], html.light [class*="bg-[#0f131c]"],
+html.light-mode [class*="bg-[#0a0e16]"], html.light [class*="bg-[#0a0e16]"],
+html.light-mode [class*="bg-[#181c24]"], html.light [class*="bg-[#181c24]"],
+html.light-mode [class*="bg-[#1c2028]"], html.light [class*="bg-[#1c2028]"],
+html.light-mode [class*="bg-[#262a33]"], html.light [class*="bg-[#262a33]"],
+html.light-mode [class*="bg-[#31353e]"], html.light [class*="bg-[#31353e]"],
+html.light-mode .glass-panel, html.light .glass-panel,
+html.light-mode .glass-panel-elevated, html.light .glass-panel-elevated,
+html.light-mode .bg-surface-container-lowest, html.light .bg-surface-container-lowest,
+html.light-mode .bg-surface-container-low, html.light .bg-surface-container-low,
+html.light-mode .bg-surface-container, html.light .bg-surface-container,
+html.light-mode .bg-surface-container-high, html.light .bg-surface-container-high,
+html.light-mode .bg-surface-container-highest, html.light .bg-surface-container-highest {
+  background-color: #ffffff !important;
+  border-color: #e2e8f0 !important;
+  box-shadow: 0 10px 30px -5px rgba(15, 23, 42, 0.05), 0 4px 6px -2px rgba(15, 23, 42, 0.025) !important;
+}
+
+/* Nested Sub-pills, stack chips and inner badges inside cards in Light Mode */
+html.light-mode [class*="bg-[#1c2028]"], html.light [class*="bg-[#1c2028]"],
+html.light-mode [class*="bg-[#262a33]"], html.light [class*="bg-[#262a33]"],
+html.light-mode [class*="bg-[#31353e]"], html.light [class*="bg-[#31353e]"] {
+  background-color: #f1f5f9 !important;
+  border-color: #cbd5e1 !important;
+  color: #0f172a !important;
+}
+
+html.light-mode header, html.light header {
+  background-color: rgba(255, 255, 255, 0.95) !important;
+  box-shadow: 0 4px 25px -4px rgba(15, 23, 42, 0.06) !important;
+  border-bottom: 1px solid #e2e8f0 !important;
+}
+
+html.light-mode header nav, html.light header nav {
+  background-color: #f1f5f9 !important;
+  border-color: #cbd5e1 !important;
+}
+
+html.light-mode header nav a, html.light header nav a {
+  color: #334155 !important;
+}
+
+html.light-mode header nav a:hover, html.light header nav a:hover {
+  color: #2563eb !important;
+  background-color: #ffffff !important;
+  box-shadow: 0 2px 8px rgba(15, 23, 42, 0.04);
+}
+
+/* Light Theme Text & Accent Color Mappings */
+html.light-mode h1, html.light-mode h2, html.light-mode h3, html.light-mode h4, html.light-mode h5, html.light-mode h6,
+html.light h1, html.light h2, html.light h3, html.light h4, html.light h5, html.light h6,
+html.light-mode [class*="text-[#dfe2ee]"], html.light [class*="text-[#dfe2ee]"],
+html.light-mode .text-on-surface, html.light .text-on-surface {
+  color: #0f172a !important;
+}
+
+html.light-mode p, html.light p,
+html.light-mode [class*="text-[#c2c6d6]"], html.light [class*="text-[#c2c6d6]"],
+html.light-mode .text-on-surface-variant, html.light .text-on-surface-variant {
+  color: #334155 !important;
+}
+
+html.light-mode [class*="text-[#8c909f]"], html.light [class*="text-[#8c909f]"],
+html.light-mode .text-outline, html.light .text-outline {
+  color: #64748b !important;
+}
+
+html.light-mode .text-outline-variant, html.light .text-outline-variant {
+  color: #94a3b8 !important;
+}
+
+html.light-mode [class*="text-[#adc6ff]"], html.light [class*="text-[#adc6ff]"] {
+  color: #2563eb !important;
+}
+
+html.light-mode [class*="text-[#d0bcff]"], html.light [class*="text-[#d0bcff]"] {
+  color: #6366f1 !important;
+}
+
+html.light-mode [class*="text-[#4edea3]"], html.light [class*="text-[#4edea3]"] {
+  color: #059669 !important;
+}
+
+html.light-mode footer, html.light footer {
+  background-color: #ffffff !important;
+  border-top: 1px solid #e2e8f0 !important;
+}
+
+html.light-mode input, html.light-mode select, html.light-mode textarea,
+html.light input, html.light select, html.light textarea {
+  background-color: #ffffff !important;
+  color: #0f172a !important;
+  border: 1px solid #cbd5e1 !important;
+}
+
+html.light-mode #copy-toast, html.light #copy-toast {
+  background-color: #0f172a !important;
+  color: #ffffff !important;
+}
+
+html.light-mode #copy-toast span, html.light #copy-toast span {
+  color: #ffffff !important;
+}
+
+html.light-mode #copy-toast .material-symbols-outlined, html.light #copy-toast .material-symbols-outlined {
+  color: #10b981 !important;
+}
+
+/* Light Mode device frame & simulator stylings */
+html.light-mode .device-chassis, html.light .device-chassis {
+  background: #ffffff !important;
+  border: 8px solid #cbd5e1 !important;
+  box-shadow: 0 25px 50px -12px rgba(15, 23, 42, 0.15), 0 0 0 1px rgba(0, 0, 0, 0.08) !important;
+}
+
+html.light-mode .device-inner-screen, html.light .device-inner-screen {
+  background-color: #ffffff !important;
+}
+
+html.light-mode .device-pill-dock, html.light .device-pill-dock {
+  background-color: #ffffff !important;
+  border-top: 1px solid #e2e8f0 !important;
+}
+
+/* Custom Keyframe Animations */
+@keyframes floatPhone {
+  0%, 100% {
+    transform: translateY(0px) rotate(0deg);
+  }
+  50% {
+    transform: translateY(-8px) rotate(0.5deg);
+  }
+}
+
+@keyframes pulseGlow {
+  0%, 100% {
+    opacity: 0.6;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 0.9;
+    transform: scale(1.05);
+  }
+}
+
+.animate-float-phone {
+  animation: floatPhone 6s ease-in-out infinite;
+}
+
+.animate-pulse-glow {
+  animation: pulseGlow 4s ease-in-out infinite;
+}
