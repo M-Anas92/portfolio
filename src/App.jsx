@@ -64,45 +64,17 @@ export default function App() {
   };
 
   const handleDownloadCV = () => {
-    setToastMessage('Generating Muhammad Anas Azeem CV...');
+    setToastMessage('Opening Muhammad Anas Azeem Resume PDF...');
     setToastShow(true);
     setTimeout(() => setToastShow(false), 3000);
 
-    const resumeContent = `MUHAMMAD ANAS AZEEM
-App Developer & UI/UX Designer
-Email: graphics121234@gmail.com
-Phone: +92 325 3000192 / +92 310 4025172
-Location: Faisalabad, Pakistan
-
-OBJECTIVE:
-Seeking an App Developer role to build hands-on experience in mobile application development, applying a working foundation in Flutter/Dart, and design mastery to build cross-platform mobile apps.
-
-SKILLS:
-- Mobile & Web: Flutter, Dart, Firebase, React, Node.js, HTML5, CSS3, JavaScript, REST APIs, Android Studio
-- Design & UI/UX (5+ Years): Figma, Adobe XD, Adobe Photoshop, Adobe Illustrator
-
-EXPERIENCE:
-Flutter App Developer (Self-Employed) | 2025 – Present
-- Developed responsive websites and web applications for clients using HTML, CSS, JavaScript, React, and Node.js.
-- Developed cross-platform applications using Flutter and Dart for Android, iOS, Web, Windows, and macOS.
-- Built responsive user-friendly interfaces using reusable Flutter widgets.
-- Implemented models, providers, services, and modular clean architecture.
-- Integrated Firebase for authentication, database, and backend services.
-
-PROJECTS:
-1. PropMap AI — Real Estate & Property Management App (Flutter & Dart, Firebase)
-2. Personal Developer Portfolio (React, Vite, Framer Motion, GitHub Pages)
-3. BMI Calculator App (Flutter, Dart, Custom UI Sliders)`;
-
-    const blob = new Blob([resumeContent], { type: 'text/plain;charset=utf-8' });
-    const url = URL.createObjectURL(blob);
     const link = document.createElement('a');
-    link.href = url;
-    link.download = 'Muhammad_Anas_Azeem_Resume.txt';
+    link.href = '/Muhammad_Anas_Azeem_CV.pdf';
+    link.download = 'Muhammad_Anas_Azeem_CV.pdf';
+    link.target = '_blank';
     document.body.appendChild(link);
     link.click();
     document.body.removeChild(link);
-    URL.revokeObjectURL(url);
   };
 
   return (
